@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>18 Piotrka – Album</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+background:black;
+background: radial-gradient(circle at center,#ff9d00 0%, #000 65%);
+}
+
+/* OKŁADKA */
+
+.cover{
+margin-top:60px;
+}
+
+.cover img{
+width:320px;
+border-radius:15px;
+box-shadow:0 0 60px orange;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cover img:hover{
+transform:scale(1.05);
+box-shadow:0 0 80px #ffae00;
+}
+
+/* PLAYER */
+
+.player{
+margin-top:20px;
+}
+
+/* TYTUŁ */
+
+.title{
+font-size:26px;
+letter-spacing:3px;
+margin-top:25px;
+color:#ffae00;
+}
+
+/* TRACKLISTA */
+
+.tracklist{
+margin-top:40px;
+width:420px;
+margin-left:auto;
+margin-right:auto;
+background:rgba(0,0,0,0.65);
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 25px orange;
+}
+
+/* POJEDYNCZY UTWÓR */
+
+.track{
+padding:14px;
+border-bottom:1px solid rgba(255,255,255,0.15);
+cursor:pointer;
+transition:0.25s;
+font-size:16px;
+}
+
+.track:hover{
+background:linear-gradient(90deg, transparent, rgba(255,140,0,0.4), transparent);
+transform:scale(1.02);
+}
+
+.active{
+background:rgba(255,140,0,0.3);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cover">
+
+<!-- 🔴 TUTAJ wstaw swoją okładkę -->
+<img src="okladka.png" id="cover">
+
+</div>
+
+<div class="player">
+
+<!-- 🔴 GŁÓWNY ODTWARZACZ -->
+<audio id="audio" controls>
+
+<!-- 🔴 PIERWSZY UTWÓR -->
+<source src="utwory/belt.mp3" type="audio/mp3">
+
+</audio>
+
+</div>
+
+<div class="title">
+18 PIOTRKA – TRACKLIST
+</div>
+
+<div class="tracklist">
+
+<div class="track" onclick="playTrack(this,'utwory/belt.mp3')">
+1. Bełt
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/taniec.mp3')">
+2. Taniec Brzucha
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/motocyklista.mp3')">
+3. Gejowski Motocyklista
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/skarby.mp3')">
+4. Skarby
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/roomba.mp3')">
+5. Roomba
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/nocki.mp3')">
+6. Nocki
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/cringe.mp3')">
+7. Cringe Love Song
+</div>
+
+<div class="track" onclick="playTrack(this,'utwory/trap.mp3')">
+8. Robotniczy trap
+</div>
+
+</div>
+
+<script>
+
+function playTrack(element, src){
+
+let audio = document.getElementById("audio")
+audio.src = src
+audio.play()
+
+/* PODŚWIETLENIE AKTYWNEGO UTWORU */
+
+let tracks = document.querySelectorAll(".track")
+tracks.forEach(t => t.classList.remove("active"))
+
+element.classList.add("active")
+
+}
+
+</script>
+
+</body>
+</html>
